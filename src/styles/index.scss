@@ -18,7 +18,7 @@ main {
 }
 
 .calendar {
-  max-width: 700px + 6px;
+  max-width: 706px;
   display: flex;
   gap: 1px;
   flex-wrap: wrap;
@@ -34,13 +34,12 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.5s;
+    transition: all 0.3s ease 0s;
 
     &:hover {
       cursor: pointer;
       background-color: #ffbfcb;
-      transform: translate(0, -20);
-      transition: all 0.5s;
+      transform: translate(0, -20px);
     }
 
     @for $i from 1 through 31 {
@@ -54,7 +53,7 @@ main {
 
   @each $day, $shift in $startDays {
     &--start-day-#{$day} {
-      & :first-child {
+      & .calendar__day:first-child {
         margin-left: 101px * $shift;
       }
     }
@@ -62,9 +61,9 @@ main {
 
   @for $i from 28 through 30 {
     &--month-length-#{$i} {
-      & :nth-child(#{$i + 1}),
-      & :nth-child(#{$i + 2}),
-      & :nth-child(#{$i + 3}) {
+      & .calendar__day:nth-child(#{$i + 1}),
+      & .calendar__day:nth-child(#{$i + 2}),
+      & .calendar__day:nth-child(#{$i + 3}) {
         display: none;
       }
     }
